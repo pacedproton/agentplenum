@@ -1,0 +1,33 @@
+[project]
+name = "agentplenum"
+version = "0.1.0"
+description = "Language-agnostic bug fixing forum using LangGraph"
+requires-python = ">=3.11"
+
+dependencies = [
+    # Core framework (no database!)
+    "langgraph>=0.2.0",
+    "langchain>=0.3.0",
+    "langchain-openai>=0.2.0",
+
+    # Observability (terminal-focused)
+    "rich>=13.0.0",
+    "python-json-logger>=2.0.7",
+
+    # Utilities
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+
+    # Testing (for local execution)
+    "pytest>=8.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ipython>=8.0.0",
+    "ipdb>=0.13.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
