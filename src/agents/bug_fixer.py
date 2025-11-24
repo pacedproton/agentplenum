@@ -2,7 +2,7 @@
 from datetime import datetime
 import json
 import difflib
-from langchain_openai import ChatOpenAI
+from langchain_anthropic import ChatAnthropic
 from langchain_core.prompts import ChatPromptTemplate
 from ..state.schema import BugFixState
 from ..utils.prompts import BUG_FIXER_PROMPT
@@ -15,8 +15,8 @@ class BugFixerAgent:
     Takes failed tests and modifies code to fix the issues.
     """
 
-    def __init__(self, tracer, logger, model: str = "gpt-4"):
-        self.llm = ChatOpenAI(model=model, temperature=0.2)
+    def __init__(self, tracer, logger, model: str = "claude-3-5-sonnet-20241022"):
+        self.llm = ChatAnthropic(model=model, temperature=0.2)
         self.tracer = tracer
         self.logger = logger
 

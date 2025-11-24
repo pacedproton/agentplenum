@@ -1,7 +1,7 @@
 """Behavior specification agent"""
 from datetime import datetime
 import json
-from langchain_openai import ChatOpenAI
+from langchain_anthropic import ChatAnthropic
 from langchain_core.prompts import ChatPromptTemplate
 from ..state.schema import BugFixState
 from ..utils.prompts import BEHAVIOR_SPECIFIER_PROMPT
@@ -15,8 +15,8 @@ class BehaviorSpecifierAgent:
     specification of what the code should do.
     """
 
-    def __init__(self, tracer, logger, model: str = "gpt-4"):
-        self.llm = ChatOpenAI(model=model, temperature=0)
+    def __init__(self, tracer, logger, model: str = "claude-3-5-sonnet-20241022"):
+        self.llm = ChatAnthropic(model=model, temperature=0)
         self.tracer = tracer
         self.logger = logger
 
